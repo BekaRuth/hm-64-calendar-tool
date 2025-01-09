@@ -10,12 +10,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="text/javascript">
+
         var dateNumber = 3;
         var currentSeason = "Spring";
         var currentYear = 1;
         var dayOfWeek = 'Wednesday';
         var totalDays = 0;
         var dateString = dayOfWeek + ", " + currentSeason + " " + dateNumber + ", Year " + currentYear;
+
+        var trackedNPCs = [];
+        var npcList = ["Ann", "Elli", "Karen", "Maria", "Popuri", "Rick", "Cliff", "Gray", "Harris", "Jeff", "Kai", "Kent", "Stu", "Pastor", "Basil", "Lillia", "Doug", "Mayor", "MayorsWife", "PotionShopDealer", "May"];
+        var npcInfo = getNPCS();
+
+        function onLoad() {
+            // Creating Dropdown          
+            for (var i = 0; i < npcList.length; i++) {
+                $("#dropdownList").append("<li id='"+npcList[i]+"Dropdown'><a class='dropdown-item'>"+npcList[i]+"</a></li>")
+            }
+
+            $("#dropdownList li").click(function() {
+                var npcClicked = $(this).attr("id");
+                npcClicked = npcClicked.replace("Dropdown","");
+                addNPCToList(npcClicked);
+            });
+
+            updateDateText();
+        }
 
         function addDay() {
             totalDays++;
@@ -25,7 +45,9 @@
                 this.advanceSeason();
             }
             this.setDayOfWeek();
-            this.onLoadFunction();
+
+            this.updateDateText();
+            this.updateScheduleText();
         }
 
         function removeDay() {
@@ -36,7 +58,21 @@
                 this.backSeason();
             }
             this.setDayOfWeek();
-            this.onLoadFunction();
+
+            this.updateDateText();
+            this.updateScheduleText();
+        }
+
+        function updateScheduleText() {
+            for (var i = 0; i < trackedNPCs.length; i++) {
+                var npcScheduleText = getSchedule(trackedNPCs[i]);
+                document.getElementById(trackedNPCs[i]+"ScheduleItem").innerHTML = trackedNPCs[i] + ": " + npcScheduleText;
+            }
+        }
+
+        function updateDateText() {
+            this.dateString = this.dayOfWeek + ", " + this.currentSeason + " " + this.dateNumber + ", Year " + this.currentYear;
+            document.getElementById("dateDisplay").innerHTML = dateString;
         }
 
         function advanceSeason() {
@@ -103,7 +139,9 @@
             }
         }
 
+        //Returns text of single schedule block for an npc. Checks for specific seasonal or day requirements.
         function getSchedule(name) {
+
             var npcData = npcInfo[name];
             var scheduleString = "Unavailable";
 
@@ -127,40 +165,12 @@
             }
 
             return scheduleString;
+        }  
+
+        function addNPCToList(npcName) {
+            $("#npcScheduleList").append("<li class='list-group-item' id='"+npcName+"ScheduleItem'>"+npcName+": "+ getSchedule(npcName) +" </li>");
+            trackedNPCs.push(npcName);
         }
-
-        var npcInfo = getNPCS();
-
-        //TODO: Abililty to add and remove which NPCs/Shops are tracked
-        var trackedNPCs = ["Ann"];
-
-        function onLoadFunction() {
-            this.dateString = this.dayOfWeek + ", " + this.currentSeason + " " + this.dateNumber + ", Year " + this.currentYear;
-            document.getElementById("dateDisplay").innerHTML = dateString;
-
-            //TODO: Abililty to add and remove which NPCs/Shops are tracked.
-            document.getElementById("annSchedule").innerHTML = "Ann: " + getSchedule("Ann");
-            document.getElementById("elliSchedule").innerHTML = "Elli: " + getSchedule("Elli");
-            document.getElementById("karenSchedule").innerHTML = "Karen: " + getSchedule("Karen");
-            document.getElementById("mariaSchedule").innerHTML = "Maria: " + getSchedule("Maria");
-            document.getElementById("popuriSchedule").innerHTML = "Popuri: " + getSchedule("Popuri");
-            document.getElementById("rickSchedule").innerHTML = "Rick: " + getSchedule("Rick");
-            document.getElementById("cliffSchedule").innerHTML = "Cliff: " + getSchedule("Cliff");
-            document.getElementById("graySchedule").innerHTML = "Gray: " + getSchedule("Gray");
-            document.getElementById("harrisSchedule").innerHTML = "Harris: " + getSchedule("Harris");
-            document.getElementById("jeffSchedule").innerHTML = "Jeff: " + getSchedule("Jeff");
-            document.getElementById("kaiSchedule").innerHTML = "Kai: " + getSchedule("Kai");
-            document.getElementById("kentSchedule").innerHTML = "Kent: " + getSchedule("Kent");
-            document.getElementById("stuSchedule").innerHTML = "Stu: " + getSchedule("Stu");
-            document.getElementById("pastorSchedule").innerHTML = "Pastor: " + getSchedule("Pastor");
-            document.getElementById("basilSchedule").innerHTML = "Basil: " + getSchedule("Basil");
-            document.getElementById("lilliaSchedule").innerHTML = "Lillia: " + getSchedule("Lillia");
-            document.getElementById("dougSchedule").innerHTML = "Doug: " + getSchedule("Doug");
-            document.getElementById("mayorSchedule").innerHTML = "Mayor: " + getSchedule("Mayor");
-            document.getElementById("mayorsWifeSchedule").innerHTML = "Mayor's Wife: " + getSchedule("MayorsWife");
-            document.getElementById("potionShopDealerSchedule").innerHTML = "Potion Shop Dealer: " + getSchedule("PotionShopDealer");
-            document.getElementById("maySchedule").innerHTML = "May: " + getSchedule("May");
-        };
 
         function getNPCS() {
             return {
@@ -641,11 +651,7 @@
     </script>
     </head>
 
-
-
-
-
-  <body onload="onLoadFunction()">
+  <body onload="onLoad()">
     <div class="container">
         <h1 id="dateDisplay"></h1>
     </div>
@@ -653,32 +659,22 @@
         <button onclick="removeDay()" type="button" class="btn btn-primary"><</button>
         <button onclick="addDay()" type="button" class="btn btn-primary">></button>
     </div>
+    <div class="container">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Add NPC
+            </button>
+            <ul id="dropdownList" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <!-- Dropdown generated in onLoad() -->
+            </ul>
+          </div>
+    </div>
+    
     <!-- TODO: Festivals -->
     <div class="container">
-        <ul class="list-group">
-            <!-- TODO: Ability to Add/Remove tracked NPS/Shops -->
+        <ul id="npcScheduleList" class="list-group">
              <!-- TODO: Add images -->
-            <li class="list-group-item" id="annSchedule"></li>
-            <li class="list-group-item" id="elliSchedule"></li>
-            <li class="list-group-item" id="karenSchedule"></li>
-            <li class="list-group-item" id="mariaSchedule"></li>
-            <li class="list-group-item" id="popuriSchedule"></li>
-            <li class="list-group-item" id="rickSchedule"></li>
-            <li class="list-group-item" id="cliffSchedule"></li>
-            <li class="list-group-item" id="graySchedule"></li>
-            <li class="list-group-item" id="harrisSchedule"></li>
-            <li class="list-group-item" id="jeffSchedule"></li>
-            <li class="list-group-item" id="kaiSchedule"></li>
-            <li class="list-group-item" id="kentSchedule"></li>
-            <li class="list-group-item" id="stuSchedule"></li>
-            <li class="list-group-item" id="pastorSchedule"></li>
-            <li class="list-group-item" id="basilSchedule"></li>
-            <li class="list-group-item" id="lilliaSchedule"></li>
-            <li class="list-group-item" id="dougSchedule"></li>
-            <li class="list-group-item" id="mayorSchedule"></li>
-            <li class="list-group-item" id="mayorsWifeSchedule"></li>
-            <li class="list-group-item" id="potionShopDealerSchedule"></li>
-            <li class="list-group-item" id="maySchedule"></li>
+              <!-- List items generated in addNPCToList() -->
         </ul>
     </div>
   </body>
