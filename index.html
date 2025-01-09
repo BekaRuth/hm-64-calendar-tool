@@ -31,7 +31,8 @@
             $("#dropdownList li").click(function() {
                 var npcClicked = $(this).attr("id");
                 npcClicked = npcClicked.replace("Dropdown","");
-                addNPCToList(npcClicked);
+
+                addNPCToList(npcClicked, true);
             });
 
             updateDateText();
@@ -64,9 +65,10 @@
         }
 
         function updateScheduleText() {
+            $("#npcScheduleList li").remove();
             for (var i = 0; i < trackedNPCs.length; i++) {
                 var npcScheduleText = getSchedule(trackedNPCs[i]);
-                document.getElementById(trackedNPCs[i]+"ScheduleItem").innerHTML = trackedNPCs[i] + ": " + npcScheduleText;
+                addNPCToList(trackedNPCs[i], false);
             }
         }
 
@@ -167,9 +169,17 @@
             return scheduleString;
         }  
 
-        function addNPCToList(npcName) {
-            $("#npcScheduleList").append("<li class='list-group-item' id='"+npcName+"ScheduleItem'>"+npcName+": "+ getSchedule(npcName) +" </li>");
-            trackedNPCs.push(npcName);
+        function addNPCToList(npcName, pushToTrackedNPCs) {
+            $("#npcScheduleList").append('<li class="list-group-item d-flex justify-content-between align-items-center" id="'+npcName+'ScheduleItem">'+npcName+': '+ getSchedule(npcName) +'<span type="button" class="badge bg-danger rounded-pill" onclick="removeNPC(\''+ npcName + '\')">-</span></li>');
+            if(pushToTrackedNPCs) {
+                trackedNPCs.push(npcName);
+            }
+
+        }
+
+        function removeNPC(npcName) {
+            trackedNPCs = trackedNPCs.filter(i => i !== npcName);
+            $('#'+npcName+'ScheduleItem').remove()
         }
 
         function getNPCS() {
