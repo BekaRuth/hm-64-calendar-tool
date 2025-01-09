@@ -176,16 +176,22 @@
         }
 
         function addNPCToList(npcName, pushToTrackedNPCs) {
+            if(trackedNPCs.includes(npcName) && pushToTrackedNPCs) return false;
+
             $("#npcScheduleList").append('<li class="list-group-item d-flex justify-content-between align-items-center" id="'+npcName+'ScheduleItem"><img src="'+getImage(npcName)+'"class="img-thumbnail">'+npcName+': '+ getSchedule(npcName) +'<span type="button" class="badge bg-danger rounded-pill" onclick="removeNPC(\''+ npcName + '\')">-</span></li>');
             if(pushToTrackedNPCs) {
                 trackedNPCs.push(npcName);
             }
-
+            var dropdownString = "#" + npcName + "Dropdown"
+            $(dropdownString + " a").addClass("disabled");
         }
 
         function removeNPC(npcName) {
             trackedNPCs = trackedNPCs.filter(i => i !== npcName);
             $('#'+npcName+'ScheduleItem').remove()
+
+            var dropdownString = "#" + npcName + "Dropdown"
+            $(dropdownString + " a").removeClass("disabled");
         }
 
         function getNPCS() {
