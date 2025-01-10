@@ -84,6 +84,7 @@
         //TODO: Bug: Schedule Text not crossed out when adding NPC to list during festival day where shops are closed and npcs unavailable
         function updateFestivalText() {
             $("#festivalAlert").remove();
+            $("#festivalAlert").remove(); // Called twice because of Fall 27 Year 1 Instance multiple alerts. TODO:Fall 27 Year 1 Bug
             $("#npcScheduleList li").css("text-decoration","none");
 
             for (const key in festivalInfo) {
@@ -726,12 +727,42 @@
                     "shopsClosed": "true",
                     "color" : "alert-danger"
                 },
-                "Horse Race" : {
+                "Spring Horse Race Tomorrow" : {
+                    "season" : "Spring",
+                    "day" : "16",
+                    "text" : "Doug will come to your farm to ask if you would like to enter your horse in tomorrow's festival.",
+                    "color" : "alert-warning"
+                },
+                "Spring Horse Race" : {
                     "season" : "Spring",
                     "day" : "17",
                     "text" : "8am Town Square. Shops Closed.",
                     "shopsClosed": "true",
                     "color" : "alert-danger"
+                },
+                "Flower Festival Voting Day 1" : {
+                    "season" : "Spring",
+                    "day" : "19",
+                    "text" : "You may vote for the next Harvest Goddess at Town Square.",
+                    "color" : "alert-warning"
+                },
+                "Flower Festival Voting Day 2" : {
+                    "season" : "Spring",
+                    "day" : "20",
+                    "text" : "You may vote for the next Harvest Goddess at Town Square.",
+                    "color" : "alert-warning"
+                },
+                "Flower Festival Voting Day 3" : {
+                    "season" : "Spring",
+                    "day" : "21",
+                    "text" : "You may vote for the next Harvest Goddess at Town Square.",
+                    "color" : "alert-warning"
+                },
+                "Flower Festival Voting Last Day" : {
+                    "season" : "Spring",
+                    "day" : "22",
+                    "text" : "You may vote for the next Harvest Goddess at Town Square.",
+                    "color" : "alert-warning"
                 },
                 "Flower Festival" : {
                     "season" : "Spring",
@@ -767,6 +798,12 @@
                     "shopsClosed": "true",
                     "color" : "alert-danger"
                 },
+                "Cow Festival Tomorrow" : {
+                    "season" : "Fall",
+                    "day" : "3",
+                    "text" : "Doug will come to your farm to ask if you would like to enter a cow in tomorrow's festival.",
+                    "color" : "alert-warning"
+                },
                 "Cow Festival" : {
                     "season" : "Fall",
                     "day" : "4",
@@ -788,7 +825,48 @@
                     "shopsClosed" : "true",
                     "color" : "alert-danger"
                 },
-                "Horse Race" : {
+                "Bridge Work Day 1" : {
+                    "season" : "Fall",
+                    "day" : "23",
+                    "text" : "Begin 6am-2:59pm at Fisherman's Tent screen. Earn 1000G.",
+                    "year" : "1",
+                    "color" : "alert-warning"
+                },
+                "Bridge Work Day 2" : {
+                    "season" : "Fall",
+                    "day" : "24",
+                    "text" : "Begin 6am-2:59pm at Fisherman's Tent screen. Earn 1000G.",
+                    "year" : "1",
+                    "color" : "alert-warning"
+                },
+                "Bridge Work Day 3" : {
+                    "season" : "Fall",
+                    "day" : "25",
+                    "text" : "Begin 6am-2:59pm at Fisherman's Tent screen. Earn 1000G.",
+                    "year" : "1",
+                    "color" : "alert-warning"
+                },
+                "Bridge Work Day 4" : {
+                    "season" : "Fall",
+                    "day" : "26",
+                    "text" : "Begin 6am-2:59pm at Fisherman's Tent screen. Earn 1000G.",
+                    "year" : "1",
+                    "color" : "alert-warning"
+                },
+                "Bridge Work Day 5" : {
+                    "season" : "Fall",
+                    "day" : "27",
+                    "text" : "Begin 6am-2:59pm at Fisherman's Tent screen. Earn 1000G.",
+                    "year" : "1",
+                    "color" : "alert-warning"
+                },
+                "Fall Horse Race Tomorrow" : {
+                    "season" : "Fall",
+                    "day" : "27",
+                    "text" : "Doug will come to your farm to ask if you would like to enter your horse in tomorrow's festival.",
+                    "color" : "alert-warning"
+                },
+                "Fall Horse Race" : {
                     "season" : "Fall",
                     "day" : "28",
                     "text" : "8am Town Square. Shops Closed.",
@@ -799,6 +877,47 @@
                     "season" : "Winter",
                     "day" : "10",
                     "text" : "8am-5pm Girls will stop by your farm to give you cake.",
+                    "color" : "alert-warning"
+                },
+                "Hot Springs Work Day 1" : {
+                    "season" : "Winter",
+                    "day" : "12",
+                    "text" : "Begin 6am-2:59pm at Fisherman's Tent screen. Earn 1000G.",
+                    "year" : "1",
+                    "color" : "alert-warning"
+                },
+                "Hot Springs Work Day 2" : {
+                    "season" : "Winter",
+                    "day" : "13",
+                    "text" : "Begin 6am-2:59pm at Fisherman's Tent screen. Earn 1000G.",
+                    "year" : "1",
+                    "color" : "alert-warning"
+                },
+                "Hot Springs Work Day 3" : {
+                    "season" : "Winter",
+                    "day" : "14",
+                    "text" : "Begin 6am-2:59pm at Fisherman's Tent screen. Earn 1000G.",
+                    "year" : "1",
+                    "color" : "alert-warning"
+                },
+                "Hot Springs Work Day 4" : {
+                    "season" : "Winter",
+                    "day" : "15",
+                    "text" : "Begin 6am-2:59pm at Fisherman's Tent screen. Earn 1000G.",
+                    "year" : "1",
+                    "color" : "alert-warning"
+                },
+                "Hot Springs Work Day 5" : {
+                    "season" : "Winter",
+                    "day" : "16",
+                    "text" : "Begin 6am-2:59pm at Fisherman's Tent screen. Earn 1000G.",
+                    "year" : "1",
+                    "color" : "alert-warning"
+                },
+                "Dog Race Tomorrow" : {
+                    "season" : "Winter",
+                    "day" : "18",
+                    "text" : "Doug will come to your farm to ask if you would like to enter your dog in tomorrow's festival.",
                     "color" : "alert-warning"
                 },
                 "Dog Race" : {
@@ -820,9 +939,7 @@
                     "text" : "6:00pm - 11:59pm Bar or Church. Shops Open",
                     "color" : "alert-danger"
                 }
-
-                
-            } //TODO: Photo Events/Important dates as well? Bridge work
+            } //TODO: Photo Events/Important dates as well?
         }
         //End Festival Data
         
