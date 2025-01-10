@@ -81,8 +81,7 @@
             document.getElementById("dateDisplay").innerHTML = dateString;
         }
 
-        //TODO: Bug: Schedule Text not crossed out when added during festival day which shops are closed and npcs unavailable
-        //TODO: Clean code
+        //TODO: Bug: Schedule Text not crossed out when adding NPC to list during festival day where shops are closed and npcs unavailable
         function updateFestivalText() {
             $("#festivalAlert").remove();
             $("#npcScheduleList li").css("text-decoration","none");
@@ -91,31 +90,18 @@
                 var festival = festivalInfo[key]
                 if ((festival.season == this.currentSeason) && (festival.day == this.dateNumber)) {
                     var festivalString =  key + ": " + festival.text
-                    if (festival.hasOwnProperty("isEvent")) { //Styling will be different if it is not a festival.
-                        if (festival.hasOwnProperty("year")) {
-                            if (festival.year == this.currentYear) { //Happens on specific year
-                                $("#festivalAlertBox").append('<div id="festivalAlert" class="alert alert-warning" role="alert"><h4>'+festivalString+'</h4></div>');
-                                if (festival.hasOwnProperty("shopsClosed")) { //Crosses out text for npc schedules if shops are closed for festival
-                                    $("#npcScheduleList li").css("text-decoration","line-through");
-                                }
-                            }
-                        } else { //Happens yearly
-                            $("#festivalAlertBox").append('<div id="festivalAlert" class="alert alert-warning" role="alert"><h4>'+festivalString+'</h4></div>');
-                            if (festival.hasOwnProperty("shopsClosed")) {
-                                $("#npcScheduleList li").css("text-decoration","line-through");
-                            }
-                        }
-                    }
-
+                
                     if (festival.hasOwnProperty("year")) {
                         if (festival.year == this.currentYear) { //Happens on specific year
-                            $("#festivalAlertBox").append('<div id="festivalAlert" class="alert alert-danger" role="alert"><h4>'+festivalString+'</h4></div>');
+                            $("#festivalAlertBox").append('<div id="festivalAlert" class="alert" role="alert"><h4>'+festivalString+'</h4></div>');
+                            $("#festivalAlert").addClass(festival.color);
                             if (festival.hasOwnProperty("shopsClosed")) { //Crosses out text for npc schedules if shops are closed for festival
                                 $("#npcScheduleList li").css("text-decoration","line-through");
                             }
                         }
                     } else { //Happens yearly
-                        $("#festivalAlertBox").append('<div id="festivalAlert" class="alert alert-danger" role="alert"><h4>'+festivalString+'</h4></div>');
+                        $("#festivalAlertBox").append('<div id="festivalAlert" class="alert" role="alert"><h4>'+festivalString+'</h4></div>');
+                        $("#festivalAlert").addClass(festival.color);
                         if (festival.hasOwnProperty("shopsClosed")) {
                             $("#npcScheduleList li").css("text-decoration","line-through");
                         }
@@ -729,76 +715,114 @@
                 "Spring Years Day" : {
                     "season" : "Spring",
                     "day" : "1",
-                    "text" : ""
+                    "text" : "Town Square before 6pm. Shops Closed.",
+                    "shopsClosed": "true",
+                    "color" : "alert-danger"
                 },
                 "Planting Festival" : {
                     "season" : "Spring",
                     "day" : "8",
-                    "text" : "10am Town Square. Shops Closed.",
-                    "shopsClosed": "true"
+                    "text" : "Town Square before 6pm. Shops Closed.",
+                    "shopsClosed": "true",
+                    "color" : "alert-danger"
                 },
                 "Horse Race" : {
                     "season" : "Spring",
                     "day" : "17",
-                    "text" : "9am Town Square. Shops Closed.",
-                    "shopsClosed": "true"
+                    "text" : "8am Town Square. Shops Closed.",
+                    "shopsClosed": "true",
+                    "color" : "alert-danger"
                 },
                 "Flower Festival" : {
                     "season" : "Spring",
                     "day" : "23",
-                    "text" : "10am Town Square. Shops Closed.",
-                    "shopsClosed": "true"
+                    "text" : "Town Square before 6pm. Shops Closed.",
+                    "shopsClosed": "true",
+                    "color" : "alert-danger"
                     
                 },
                 "Fireworks Festival" : {
                     "season" : "Summer",
                     "day" : "1",
-                    "text" : "7pm. Beach, Green Ranch, Mountain, Bakery, or Town Square. Shops Open."
+                    "text" : "7pm. Beach, Green Ranch, Mountain, Bakery, or Town Square. Shops Open.",
+                    "color" : "alert-danger"
                 },
                 "Vegetable Festival" : {
                     "season" : "Summer",
                     "day" : "9",
-                    "text" : "10am Town Square. Shops Closed.",
-                    "shopsClosed": "true"
+                    "text" : "Town Square before 6pm. Shops Closed.",
+                    "shopsClosed": "true",
+                    "color" : "alert-danger"
                 },
                 "Firefly Festival" : {
                     "season" : "Summer",
                     "day" : "17",
                     "text" : "6pm Beach. Shops Open.",
+                    "color" : "alert-danger"
                 },
                 "Swimming Festival" : {
                     "season" : "Summer",
                     "day" : "24",
-                    "text" : "10am Beach. Shops Closed.",
-                    "shopsClosed": "true"
+                    "text" : "Town Square before 6pm. Shops Closed.",
+                    "shopsClosed": "true",
+                    "color" : "alert-danger"
                 },
                 "Cow Festival" : {
                     "season" : "Fall",
                     "day" : "4",
-                    "text" : "10am Green Ranch. Shops Closed.",
-                    "shopsClosed" : "true"
+                    "text" : "Green Ranch before 6pm. Shops Closed.",
+                    "shopsClosed" : "true",
+                    "color" : "alert-danger"
                 },
                 "Harvest Festival" : {
                     "season" : "Fall",
                     "day" : "12",
-                    "text" : "10am Town Square. Shops Closed.",
-                    "shopsClosed" : "true"
+                    "text" : "Town Square before 6pm. Shops Closed.",
+                    "shopsClosed" : "true",
+                    "color" : "alert-danger"
                 },
                 "Egg Festival" : {
                     "season" : "Fall",
                     "day" : "20",
-                    "text" : "10am Town Square. Shops Closed.",
-                    "shopsClosed" : "true"
+                    "text" : "Town Square before 6pm. Shops Closed.",
+                    "shopsClosed" : "true",
+                    "color" : "alert-danger"
                 },
                 "Horse Race" : {
                     "season" : "Fall",
                     "day" : "28",
-                    "text" : "9am Town Square. Shops Closed.",
-                    "shopsClosed" : "true"
+                    "text" : "8am Town Square. Shops Closed.",
+                    "shopsClosed" : "true",
+                    "color" : "alert-danger"
+                },
+                "Thanksgiving" : {
+                    "season" : "Winter",
+                    "day" : "10",
+                    "text" : "8am-5pm Girls will stop by your farm to give you cake.",
+                    "color" : "alert-warning"
+                },
+                "Dog Race" : {
+                    "season" : "Winter",
+                    "day" : "19",
+                    "text" : "8am-4pm Town Square. Shops Closed.",
+                    "shopsClosed" : "true",
+                    "color" : "alert-danger"
+                },
+                "Spirit Festival" : {
+                    "season" : "Winter",
+                    "day" : "27",
+                    "text" : "6pm Town Square. Shops Open.",
+                    "color" : "alert-danger"
+                },
+                "New Years Eve" : {
+                    "season" : "Winter",
+                    "day" : "30",
+                    "text" : "6:00pm - 11:59pm Bar or Church. Shops Open",
+                    "color" : "alert-danger"
                 }
 
                 
-            } //TODO: Winter Festivals. Photo Events/Important dates as well? Bridge work
+            } //TODO: Photo Events/Important dates as well? Bridge work
         }
         //End Festival Data
         
@@ -808,7 +832,6 @@
   <body onload="onLoad()">
     <nav class="navbar fixed-top navbar-light bg-light">
         <div class="container-fluid">
-
             <div class="container">
                 <div class="row">
                     <div class="col dropdown">
@@ -839,6 +862,7 @@
 
     <nav class="navbar fixed-bottom navbar-light bg-light">
         <div class="container-fluid" style="justify-content: center;">
+            <!-- TODO: Ability to select/enter specific date -->
             <div class="container">
                 <h1 id="dateDisplay" style="text-align:center; white-space:nowrap; font-size:1.8em"></h1>
             </div>
