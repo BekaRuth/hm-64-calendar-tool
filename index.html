@@ -804,7 +804,7 @@
         //End NPC Data
 
         //TODO: Ellen, Carpenter 1, Carpenter 2, Head Carpenter, Barley, Midwife, Shipper, Sprite 1, Sprite 2&3
-        //TODO: Schedule Blocks for NPCs on Festival Days. Crossing out text on festival days for now.
+
 
         //Start Festival Data
         function getFestivals()  {
@@ -907,6 +907,18 @@
                     "shopsClosed" : "true",
                     "color" : "alert-danger"
                 },
+                "Karen Photo" : {
+                    "season" : "Fall",
+                    "day" : "7",
+                    "text" : "6pm-11:59pm Farm. If Karen is 200+ affection and vinyard restored.",
+                    "color" : "alert-info"
+                },
+                "Elli Photo" : {
+                    "season" : "Fall",
+                    "day" : "9",
+                    "text" : "6pm-11:59pm Farm. If Elli is 200+ affection.",
+                    "color" : "alert-info"
+                },
                 "Harvest Festival" : {
                     "season" : "Fall",
                     "day" : "12",
@@ -967,6 +979,27 @@
                     "day" : "28",
                     "text" : "8am Town Square. Shops Closed.",
                     "shopsClosed" : "true",
+                    "color" : "alert-danger"
+                },
+                "Fall Horse Race" : {
+                    "season" : "Fall",
+                    "day" : "28",
+                    "text" : "8am Town Square. Shops Closed.",
+                    "shopsClosed" : "true",
+                    "color" : "alert-danger"
+                },
+                "Cow Event" : {
+                    "season" : "Fall",
+                    "day" : "30",
+                    "text" : "Doug at Farm.",
+                    "year" : "1",
+                    "color" : "alert-danger"
+                },
+                "Cow Event 2" : {
+                    "season" : "Winter",
+                    "day" : "5",
+                    "text" : "Doug at Farm if took cows.",
+                    "year" : "1",
                     "color" : "alert-danger"
                 },
                 "Thanksgiving" : {
@@ -1035,10 +1068,9 @@
                     "text" : "6:00pm - 11:59pm Bar or Church. Shops Open",
                     "color" : "alert-danger"
                 }
-            } //TODO: Photo Events/Important dates as well?
+            }
         }
-        //End Festival Data
-        
+        //End Festival Data    
     </script>
     </head>
 
@@ -1055,8 +1087,8 @@
                             <!-- Dropdown generated in onLoad() -->
                         </ul>
                     </div>
-                    
                 </div>
+
                 <div class="row">
                     <div class="col dropdown">
                         <button class="btn dropdown-toggle" type="button" id="seasonDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 5px;">
@@ -1100,6 +1132,7 @@
             <!-- Festivals generated in updateFestivalText() -->
         </div>
     </div>
+
     <div class="container" style=" margin-bottom: 160px;">
         <ul id="npcScheduleList" class="list-group">
               <!-- List items generated in addNPCToList() -->
@@ -1108,7 +1141,6 @@
 
     <nav class="navbar fixed-bottom navbar-light bg-light">
         <div class="container-fluid" style="justify-content: center;">
-            <!-- TODO: Ability to select/enter specific date -->
             <div class="container">
                 <h1 id="dateDisplay" style="text-align:center; white-space:nowrap; font-size:1.7em"></h1>
             </div>
