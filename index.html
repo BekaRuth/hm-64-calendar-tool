@@ -21,11 +21,10 @@
         var yearsForDropdown = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
         var trackedNPCs = [];
-        //TODO: Consider order of NPC dropdown. Alphabetical? Importance? Maria first?
         var npcList = ["Ann", "Elli", "Karen", "Maria", "Popuri", "Rick", "Cliff", "Gray", "Harris", "Jeff",
-            "Kai", "Kent", "Stu", "Pastor", "Basil", "Lillia", "Doug", "Mayor", "Mayor's Wife", "Potion Shop Dealer",
-            "May", "Ellen", "Carpenter 1 Saw", "Carpenter 2 Axe", "Head Carpenter", "Barley", "Midwife", "Shipper", 
-            "Sprite 1", "Sprites 2 and 3", "Saibara", "Duke", "Greg", "Sasha", "Sydney"].sort();
+            "Kai", "Kent", "Stu", "Pastor", "Basil", "Lillia", "Doug", "Mayor", "MayorsWife", "PotionShopDealer",
+            "May", "Ellen", "Carpenter1Saw", "Carpenter2Axe", "HeadCarpenter", "Barley", "Midwife", "Shipper", 
+            "Sprite1", "Sprites2and3", "Saibara", "Duke", "Greg", "Sasha", "Sydney"].sort();
         var npcInfo = getNPCS();
         var festivalInfo = getFestivals();
 
@@ -733,7 +732,7 @@
                     ],
                     "img" : 'assets/Mayor.png'
                 },
-                "Mayor's Wife" : {
+                "MayorsWife" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Saturday",
@@ -750,7 +749,7 @@
                     ],
                     "img" : 'assets/MayorsWife.png'
                 },
-                "Potion Shop Dealer" : {
+                "PotionShopDealer" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday",
@@ -811,7 +810,7 @@
                     ],
                     "img": 'assets/Ellen.png'
                 },
-                "Carpenter 1 Saw" : {
+                "Carpenter1Saw" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
@@ -821,7 +820,7 @@
                     ],
                     "img" : 'assets/Carpenter1.png'
                 },
-                "Carpenter 2 Axe" : {
+                "Carpenter2Axe" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
@@ -831,7 +830,7 @@
                     ],
                     "img" : 'assets/Carpenter2.png'
                 },
-                "Head Carpenter" : {
+                "HeadCarpenter" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Wednesday, Thursday, Friday, Saturday, Sunday",
@@ -881,7 +880,7 @@
                     ],
                     "img" : 'assets/Shipper.png'
                 },
-                "Sprite 1" : {
+                "Sprite1" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
@@ -890,7 +889,7 @@
                     ],
                     "img" : 'assets/Sprite1.png'
                 },
-                "Sprites 2 and 3" : {
+                "Sprites2and3" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
@@ -955,10 +954,7 @@
             }
         } 
         //End NPC Data
-        
         //TODO: Add shops in as NPCS.
-        //TODO: Sasha, Sydney
-
 
         //Start Festival Data
         function getFestivals()  {
