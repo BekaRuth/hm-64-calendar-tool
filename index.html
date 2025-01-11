@@ -24,7 +24,8 @@
         //TODO: Consider order of NPC dropdown. Alphabetical? Importance? Maria first?
         var npcList = ["Ann", "Elli", "Karen", "Maria", "Popuri", "Rick", "Cliff", "Gray", "Harris", "Jeff",
             "Kai", "Kent", "Stu", "Pastor", "Basil", "Lillia", "Doug", "Mayor", "Mayor's Wife", "Potion Shop Dealer",
-            "May", "Ellen", "Carpenter 1 Saw", "Carpenter 2 Axe", "Head Carpenter", "Barley", "Midwife", "Shipper"];
+            "May", "Ellen", "Carpenter 1 Saw", "Carpenter 2 Axe", "Head Carpenter", "Barley", "Midwife", "Shipper", 
+            "Sprite 1", "Sprites 2 and 3", "Saibara", "Duke", "Greg", "Sasha", "Sydney"].sort();
         var npcInfo = getNPCS();
         var festivalInfo = getFestivals();
 
@@ -879,13 +880,84 @@
                         }
                     ],
                     "img" : 'assets/Shipper.png'
+                },
+                "Sprite 1" : {
+                    "schedule_blocks" : [
+                        {
+                            "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+                            "text" : "8am - 8pm In Cave."
+                        }
+                    ],
+                    "img" : 'assets/Sprite1.png'
+                },
+                "Sprites 2 and 3" : {
+                    "schedule_blocks" : [
+                        {
+                            "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+                            "text" : "8am - 8pm In Cave Home."
+                        }
+                    ],
+                    "img" : 'assets/Sprite23.png'
+                },
+                "Saibara" : {
+                    "schedule_blocks" : [
+                        {
+                            "weekDays" : "Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+                            "text" : "9am - 5pm In Shop."
+                        },
+                        {
+                            "weekDays" : "Monday",
+                            "text" : "8am - 5pm Hot Springs. Rain: Unavailable."
+                        }
+                    ],
+                    "img" : 'assets/Saibara.png'
+                },
+                "Duke" : {
+                    "schedule_blocks" : [
+                        {
+                            "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday",
+                            "text" : "6pm - Midnight The Bar."
+                        }
+                    ],
+                    "img" : 'assets/Duke.png'
+                },
+                "Greg" : {
+                    "schedule_blocks" : [
+                        {
+                            "weekDays" : "Monday",
+                            "text" : "7am - 5pm Beach Dock"
+                        },
+                        {
+                            "weekDays" : "Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+                            "text" : "7am - 5pm 50% Fisherman Tent, 50% Carpenter House"
+                        }
+                    ],
+                    "img" : 'assets/Greg.png'
+                },
+                "Sasha" : {
+                    "schedule_blocks" : [
+                        {
+                            "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+                            "text" : "8am - 5pm In House"
+                        }
+                    ],
+                    "img" : 'assets/Sasha.png'
+                },
+                "Sydney" : {
+                    "schedule_blocks" : [
+                        {
+                            "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+                            "text" : "8am - 5pm In House"
+                        }
+                    ],
+                    "img" : 'assets/Sydney.png'
                 }
-                
             }
         } 
         //End NPC Data
-
-        //TODO: Sprite 1, Sprite 2&3, Saibara, Duke, Greg, Sasha, Sydney
+        
+        //TODO: Add shops in as NPCS.
+        //TODO: Sasha, Sydney
 
 
         //Start Festival Data
