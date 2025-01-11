@@ -22,7 +22,9 @@
 
         var trackedNPCs = [];
         //TODO: Consider order of NPC dropdown. Alphabetical? Importance? Maria first?
-        var npcList = ["Ann", "Elli", "Karen", "Maria", "Popuri", "Rick", "Cliff", "Gray", "Harris", "Jeff", "Kai", "Kent", "Stu", "Pastor", "Basil", "Lillia", "Doug", "Mayor", "MayorsWife", "PotionShopDealer", "May"];
+        var npcList = ["Ann", "Elli", "Karen", "Maria", "Popuri", "Rick", "Cliff", "Gray", "Harris", "Jeff",
+            "Kai", "Kent", "Stu", "Pastor", "Basil", "Lillia", "Doug", "Mayor", "MayorsWife", "PotionShopDealer",
+            "May", "Ellen", "Carpenter1Saw", "Carpenter2Axe", "HeadCarpenter"];
         var npcInfo = getNPCS();
         var festivalInfo = getFestivals();
 
@@ -798,12 +800,54 @@
                         }
                     ],
                     "img": 'assets/May.png'
+                },
+                "Ellen" : {
+                    "schedule_blocks" : [
+                        {
+                            "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+                            "text" : "8am - 5pm Outside Bakery. Rain: Inside Bakery"
+                        }
+                    ],
+                    "img": 'assets/Ellen.png'
+                },
+                "Carpenter1Saw" : {
+                    "schedule_blocks" : [
+                        {
+                            "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+                            "seasons" : "Spring, Summer, Fall",
+                            "text" : "8am - 5pm Outside Carpenter House. 5pm - 10pm Hot Springs. Rain: In Carpenter House"
+                        }
+                    ],
+                    "img" : 'assets/Carpenter1.png'
+                },
+                "Carpenter2Axe" : {
+                    "schedule_blocks" : [
+                        {
+                            "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
+                            "seasons" : "Spring, Summer, Fall",
+                            "text" : "8am - 5pm 50% Outside Carpenter House, 50% Inside Carpenter House. Rain: In Carpenter House"
+                        }
+                    ],
+                    "img" : 'assets/Carpenter2.png'
+                },
+                "HeadCarpenter" : {
+                    "schedule_blocks" : [
+                        {
+                            "weekDays" : "Monday, Wednesday, Thursday, Friday, Saturday, Sunday",
+                            "text" : "8am - 6pm 75% In Carpenter House, 25% Outside Carpenter House. Rain: In Carpenter House"
+                        },
+                        {
+                            "weekDays" : "Tuesday",
+                            "text" : "8am - 6pm 25% In Carpenter House. Rain: In Carpenter House"
+                        }
+                    ],
+                    "img" : 'assets/HeadCarpenter.png'
                 }
             }
         } 
         //End NPC Data
 
-        //TODO: Ellen, Carpenter 1, Carpenter 2, Head Carpenter, Barley, Midwife, Shipper, Sprite 1, Sprite 2&3, Saibara, Duke, Greg, Sasha, Sydney
+        //TODO: Head Carpenter, Barley, Midwife, Shipper, Sprite 1, Sprite 2&3, Saibara, Duke, Greg, Sasha, Sydney
 
 
         //Start Festival Data
@@ -826,7 +870,7 @@
                 "Spring Horse Race Tomorrow" : {
                     "season" : "Spring",
                     "day" : "16",
-                    "text" : "Doug will come to your farm to ask if you would like to enter your horse in tomorrow's festival.",
+                    "text" : "Doug at your farm.",
                     "color" : "alert-warning"
                 },
                 "Spring Horse Race" : {
@@ -897,7 +941,7 @@
                 "Cow Festival Tomorrow" : {
                     "season" : "Fall",
                     "day" : "3",
-                    "text" : "Doug will come to your farm to ask if you would like to enter a cow in tomorrow's festival.",
+                    "text" : "Doug at your farm.",
                     "color" : "alert-warning"
                 },
                 "Cow Festival" : {
@@ -971,7 +1015,7 @@
                 "Fall Horse Race Tomorrow" : {
                     "season" : "Fall",
                     "day" : "27",
-                    "text" : "Doug will come to your farm to ask if you would like to enter your horse in tomorrow's festival.",
+                    "text" : "Doug at your farm.",
                     "color" : "alert-warning"
                 },
                 "Fall Horse Race" : {
@@ -1046,7 +1090,7 @@
                 "Dog Race Tomorrow" : {
                     "season" : "Winter",
                     "day" : "18",
-                    "text" : "Doug will come to your farm to ask if you would like to enter your dog in tomorrow's festival.",
+                    "text" : "Doug at your farm.",
                     "color" : "alert-warning"
                 },
                 "Dog Race" : {
