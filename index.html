@@ -23,8 +23,8 @@
         var trackedNPCs = [];
         //TODO: Consider order of NPC dropdown. Alphabetical? Importance? Maria first?
         var npcList = ["Ann", "Elli", "Karen", "Maria", "Popuri", "Rick", "Cliff", "Gray", "Harris", "Jeff",
-            "Kai", "Kent", "Stu", "Pastor", "Basil", "Lillia", "Doug", "Mayor", "MayorsWife", "PotionShopDealer",
-            "May", "Ellen", "Carpenter1Saw", "Carpenter2Axe", "HeadCarpenter", "Barley", "Midwife", "Shipper"];
+            "Kai", "Kent", "Stu", "Pastor", "Basil", "Lillia", "Doug", "Mayor", "Mayor's Wife", "Potion Shop Dealer",
+            "May", "Ellen", "Carpenter 1 Saw", "Carpenter 2 Axe", "Head Carpenter", "Barley", "Midwife", "Shipper"];
         var npcInfo = getNPCS();
         var festivalInfo = getFestivals();
 
@@ -732,7 +732,7 @@
                     ],
                     "img" : 'assets/Mayor.png'
                 },
-                "MayorsWife" : {
+                "Mayor's Wife" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Saturday",
@@ -749,7 +749,7 @@
                     ],
                     "img" : 'assets/MayorsWife.png'
                 },
-                "PotionShopDealer" : {
+                "Potion Shop Dealer" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday",
@@ -810,7 +810,7 @@
                     ],
                     "img": 'assets/Ellen.png'
                 },
-                "Carpenter1Saw" : {
+                "Carpenter 1 Saw" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
@@ -820,7 +820,7 @@
                     ],
                     "img" : 'assets/Carpenter1.png'
                 },
-                "Carpenter2Axe" : {
+                "Carpenter 2 Axe" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
@@ -830,7 +830,7 @@
                     ],
                     "img" : 'assets/Carpenter2.png'
                 },
-                "HeadCarpenter" : {
+                "Head Carpenter" : {
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Wednesday, Thursday, Friday, Saturday, Sunday",
@@ -1173,7 +1173,7 @@
 
                 <div class="row">
                     <div class="col dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="seasonDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 5px;">
+                        <button class="btn dropdown-toggle" type="button" id="seasonDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 3px;">
                             Season
                         </button>
                         <ul id="seasonDropdownList" class="dropdown-menu" style=" overflow-y:scroll; max-height: 50vh;" aria-labelledby="seasonDropdownMenuButton">
@@ -1184,7 +1184,7 @@
                         </ul>
                     </div>
                     <div class="col dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dayDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 5px;">
+                        <button class="btn dropdown-toggle" type="button" id="dayDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 3px;">
                         Day
                         </button>
                         <ul id="dayDropdownList" class="dropdown-menu" style=" overflow-y:scroll; max-height: 50vh;" aria-labelledby="dayDropdownMenuButton">
@@ -1192,7 +1192,7 @@
                         </ul>
                     </div>
                     <div class="col dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="yearDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 5px;">
+                        <button class="btn dropdown-toggle" type="button" id="yearDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="padding: 3px;">
                         Year
                         </button>
                         <ul id="yearDropdownList" class="dropdown-menu" style=" overflow-y:scroll; max-height: 50vh;" aria-labelledby="yearMenuButton">
@@ -1224,7 +1224,7 @@
     <nav class="navbar fixed-bottom navbar-light bg-light">
         <div class="container-fluid" style="justify-content: center;">
             <div class="container">
-                <h1 id="dateDisplay" style="text-align:center; white-space:nowrap; font-size:1.7em"></h1>
+                <h1 id="dateDisplay" style="text-align:center; white-space:nowrap; font-size:1.5em"></h1>
             </div>
             <div class="row" style="width:100%">
                 <div class="col">
