@@ -280,11 +280,24 @@
             var scheduleString = "Unavailable";
 
             for(var i = 0; i < npcData.schedule_blocks.length; i++) {
+                var dataTest = npcData.schedule_blocks[i];
                 if(npcData.schedule_blocks[i].weekDays.includes(dayOfWeek)) {
                     if(npcData.schedule_blocks[i].hasOwnProperty("seasons")) {
                         if(npcData.schedule_blocks[i].seasons.includes(currentSeason)) {
                             if(npcData.schedule_blocks[i].hasOwnProperty("days")){
-                                if(npcData.schedule_blocks[i].days.includes(dateNumber)) {
+
+                                var daysArray = npcData.schedule_blocks[i].days.trim();
+                                daysArray = daysArray.replaceAll(" ","");
+                                daysArray = daysArray.split(',');
+                                var isInArray = false;
+
+                                for (var j = 0; j < daysArray.length; j++) {
+                                    if(daysArray[j] == dateNumber) {
+                                        isInArray = true;
+                                    }
+                                }
+
+                                if(isInArray) {
                                     scheduleString = npcData.schedule_blocks[i].text; //Seasonal and specific day of month. Eg Maria 1-10 Summer and Winter
                                 }
                             }
@@ -600,16 +613,16 @@
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday",
-                            "text" : "8am - 3pm. Inside Church. 3pm - 5pm. North Village Streets, south edge. <br> Rain: Potion Shop"
+                            "text" : "8am - 3pm. Inside Church. <br> 3pm - 5pm. North Village Streets, south edge. <br> Rain: Potion Shop"
                         },
                         {
                             "weekDays" : "Saturday",
-                            "text" : "9am - 3pm. 50% Town Square, 50% Fisherman Tent. <br> Rain: Unavailable"
+                            "text" : "9am - 3pm. <br> 50% Town Square, 50% Fisherman Tent. <br> Rain: Unavailable"
                         },
                         {
                             "weekDays" : "Sunday",
                             "seasons" : "Spring, Fall",
-                            "text" : "9am - 4pm. 50% Carpenter House, 50% Inside Library. <br> Rain: Unavailable"
+                            "text" : "9am - 4pm. <br> 50% Carpenter House, 50% Inside Library. <br> Rain: Unavailable"
                         },
                         {
                             "weekDays" : "Sunday",
@@ -641,15 +654,15 @@
                     "schedule_blocks" : [
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday",
-                            "text" : "9am - 5pm. Flower Shop. 6pm - 12am. 50% Bar"
+                            "text" : "9am - 5pm. Flower Shop. <br> 6pm - 12am. 50% Bar"
                         },
                         {
                             "weekDays" : "Thursday",
-                            "text" : "9am - 5pm. Behind Flower Shop. <br> Rain: Flower Shop. 6pm - 12am. 50% Bar"
+                            "text" : "9am - 5pm. Behind Flower Shop. <br> Rain: Flower Shop. <br> 6pm - 12am. 50% Bar"
                         },
                         {
                             "weekDays" : "Friday, Saturday",
-                            "text" : "8am - 6pm. Fisherman Tent. <br> Rain: Flower Shop. 6pm - 12am. 50% Bar"
+                            "text" : "8am - 6pm. Fisherman Tent. <br> Rain: Flower Shop. <br> 6pm - 12am. 50% Bar"
                         },
                         {
                             "weekDays" : "Sunday",
@@ -658,7 +671,7 @@
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
                             "seasons" : "Fall",
-                            "days" : "4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30",
+                            "days" : "5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30",
                             "text" : "Out of Town"
                         },
                         {
@@ -669,7 +682,7 @@
                         {
                             "weekDays" : "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday",
                             "seasons" : "Spring",
-                            "days" : "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15",
+                            "days" : "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14",
                             "text" : "Out of Town"
                         },
                     ],
